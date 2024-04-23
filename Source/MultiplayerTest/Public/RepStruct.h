@@ -20,6 +20,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	float SomeFlag = false;
 
+	UPROPERTY(EditAnywhere)
+	TArray<int32> HealthHistory;
+
 	FRepStruct();
 	~FRepStruct();
 };

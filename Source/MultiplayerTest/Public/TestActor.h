@@ -11,7 +11,7 @@ class MULTIPLAYERTEST_API ATestActor : public AActor
 {
 	GENERATED_BODY()
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UPROPERTY(Replicated, VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StaticMesh;
 
 public:
@@ -27,5 +27,5 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable)
-	void Test();
+	void PressedTestRep();
 };
