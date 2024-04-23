@@ -17,8 +17,8 @@ public:
 	// Sets default values for this actor's properties
 	ARepBag();
 
-	// UPROPERTY(ReplicatedUsing=OnRep_ReplicatedStruct, EditAnywhere)
-	// FRepStruct RepData{};
+	UPROPERTY(ReplicatedUsing=OnRep_ReplicatedStruct, EditAnywhere)
+	FRepStruct RepData{};
 
 	UPROPERTY(ReplicatedUsing=OnRep_ReplicatedJustInt, EditAnywhere)
 	int32 JustInt = 0;
@@ -30,8 +30,8 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// UFUNCTION()
-	// void OnRep_ReplicatedStruct();
+	UFUNCTION()
+	void OnRep_ReplicatedStruct() const;
 
 	UFUNCTION()
 	void OnRep_ReplicatedJustInt() const;

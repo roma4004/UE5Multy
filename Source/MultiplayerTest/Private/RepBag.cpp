@@ -10,9 +10,6 @@ ARepBag::ARepBag()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 	bReplicates = true;
-
-	// SetReplicates(true);
-	// SetReplicateMovement(true);
 }
 
 // Called when the game starts or when spawned
@@ -49,6 +46,11 @@ void ARepBag::Tick(float DeltaTime)
 
 }
 
+void ARepBag::OnRep_ReplicatedStruct() const
+{
+	//callback for visualization changed values
+}
+
 void ARepBag::OnRep_ReplicatedJustInt() const
 {
 	if (HasAuthority())
@@ -61,16 +63,10 @@ void ARepBag::OnRep_ReplicatedJustInt() const
 	}
 }
 
-// void ARepBag::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
-// {
-//     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
-//
-//     DOREPLIFETIME(ARepBag, RepData);
-// }
-
 void ARepBag::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
     Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
     DOREPLIFETIME(ARepBag, JustInt);
+    DOREPLIFETIME(ARepBag, RepData);
 }
